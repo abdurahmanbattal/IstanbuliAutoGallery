@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ISTANBULI AUTO GALLERY - Luxury Design System */
+
+@layer base {
+  :root {
+    /* Brand Colors - Extracted from logo */
+    --brand-blue: 207 74% 41%;
+    --brand-blue-light: 207 74% 55%;
+    --brand-blue-dark: 207 74% 30%;
+    --brand-blue-glow: 207 74% 60%;
+    
+    /* Background - Deep Navy */
+    --background: 220 50% 4%;
+    --foreground: 210 40% 98%;
+
+    /* Card surfaces */
+    --card: 220 45% 7%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popover */
+    --popover: 220 45% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary - Brand Blue */
+    --primary: 207 74% 41%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - Muted Navy */
+    --secondary: 220 40% 12%;
+    --secondary-foreground: 210 40% 90%;
+
+    /* Muted */
+    --muted: 220 30% 15%;
+    --muted-foreground: 215 20% 55%;
+
+    /* Accent - Blue highlights */
+    --accent: 207 74% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Destructive */
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* UI Elements */
+    --border: 220 30% 18%;
+    --input: 220 30% 15%;
+    --ring: 207 74% 41%;
+
+    --radius: 0.5rem;
+
+    /* Shadows & Glows */
+    --shadow-blue: 0 4px 40px -10px hsl(207 74% 41% / 0.4);
+    --shadow-elegant: 0 25px 50px -12px hsl(220 50% 4% / 0.8);
+    --glow-primary: 0 0 60px hsl(207 74% 50% / 0.3);
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, hsl(220 50% 4% / 0.3) 0%, hsl(220 50% 4% / 0.95) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 45% 10%) 0%, hsl(220 45% 6%) 100%);
+    --gradient-blue: linear-gradient(135deg, hsl(207 74% 45%) 0%, hsl(207 74% 35%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(207 74% 60%) 0%, hsl(207 74% 40%) 100%);
+
+    /* Sidebar */
+    --sidebar-background: 220 45% 6%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 207 74% 41%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 220 40% 12%;
+    --sidebar-accent-foreground: 210 40% 90%;
+    --sidebar-border: 220 30% 18%;
+    --sidebar-ring: 207 74% 41%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-cairo antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+ /* RTL Support */
+  [dir="rtl"] {
+    text-align: right;
+  }
+}
+
+@layer components {
+  /* Luxury Button Variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-lg font-bold text-lg
+           transition-all duration-300 ease-out
+           hover:shadow-[0_4px_40px_-10px_hsl(207_74%_41%_/_0.5)]
+           hover:scale-[1.02] active:scale-[0.98];
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--brand-blue-dark)) 100%);
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary/50 text-primary-foreground px-8 py-4 rounded-lg font-bold text-lg
+           bg-transparent transition-all duration-300 ease-out
+           hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_30px_hsl(207_74%_41%_/_0.2)];
+  }
+
+  .btn-ghost {
+    @apply text-muted-foreground px-6 py-3 rounded-lg font-medium
+           transition-all duration-300 hover:text-primary hover:bg-primary/5;
+  }
+
+  /* Premium Card Styles */
+  .card-luxury {
+    @apply bg-card border border-border/50 rounded-2xl overflow-hidden
+           transition-all duration-500 ease-out;
+    background: var(--gradient-card);
+  }
+
+  .card-luxury:hover {
+    @apply border-primary/30 shadow-[0_25px_60px_-15px_hsl(207_74%_41%_/_0.2)];
+    transform: translateY(-8px);
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-background/70 backdrop-blur-xl border border-border/30;
+  }
+
+  /* Text Gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(207 74% 60%) 0%, hsl(207 74% 40%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section styling */
+  .section-luxury {
+    @apply py-24 px-6 md:px-12 lg:px-24;
+  }
+
+  /* Heading styles */
+  .heading-display {
+    @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight;
+  }
+
+  .heading-section {
+    @apply text-3xl md:text-4xl font-bold mb-6;
+  }
+
+  /* Animations */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    @apply shadow-lg;
+  }
+
+  /* Blue glow on hover */
+  .hover-glow:hover {
+    @apply shadow-[0_0_40px_hsl(207_74%_41%_/_0.3)];
+  }
+
+  /* Status badges */
+  .badge-available {
+    @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+  }
+
+  .badge-reserved {
+    @apply bg-amber-500/20 text-amber-400 border border-amber-500/30;
+  }
+
+  .badge-sold {
+    @apply bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(207 74% 41% / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(207 74% 41% / 0.5);
+  }
+}
